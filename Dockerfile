@@ -11,9 +11,10 @@
 FROM keymetrics/pm2:latest
 
 RUN apk add --no-cache bash bash-completion
-RUN npm install
 
 ADD . /opt
 WORKDIR /opt
+
+RUN cd /opt && npm install
 
 CMD ["pm2-docker", "app.json"]
