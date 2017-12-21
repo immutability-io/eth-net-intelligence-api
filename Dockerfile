@@ -15,6 +15,8 @@ RUN apk add --no-cache bash bash-completion
 ADD . /opt
 WORKDIR /opt
 
-RUN cd /opt && npm install
+# Install app dependencies
+ENV NPM_CONFIG_LOGLEVEL warn
+RUN npm install --production
 
 CMD ["pm2-docker", "app.json"]
