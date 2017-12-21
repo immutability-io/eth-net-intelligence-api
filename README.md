@@ -70,7 +70,11 @@ There are some important things to note:
 
 Run it using Docker:
 
-```bash
+```
 $ docker pull immutability/eth-net-intelligence-api
-$ docker run -d -P --name ethnetintel --network ethereum --network-alias ethnetintel immutability/eth-net-intelligence-api:latest
+$ docker run -d -P --name ethnetintel \
+--network ethereum \
+--network-alias ethnetintel \
+-v /Users/secrets/app.json:/opt/app.json \
+immutability/eth-net-intelligence-api:latest
 ```
