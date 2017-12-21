@@ -10,7 +10,7 @@
 
 FROM keymetrics/pm2:latest
 
-RUN apk add --no-cache bash bash-completion
+RUN apk add --no-cache git bash bash-completion
 
 ADD . /opt
 WORKDIR /opt
@@ -18,5 +18,7 @@ WORKDIR /opt
 # Install app dependencies
 ENV NPM_CONFIG_LOGLEVEL warn
 RUN npm install --production
+
+RUN ls -al -R
 
 CMD ["pm2-docker", "app.json"]
